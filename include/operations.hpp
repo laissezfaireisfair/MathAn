@@ -3,6 +3,6 @@
 
 namespace MathAn {
   class Operations {
-    template<class Num> Num gcd(Num a, Num b);
+    static template<class Num> Num gcd(const Num a, const Num b) const;
   };
 }
