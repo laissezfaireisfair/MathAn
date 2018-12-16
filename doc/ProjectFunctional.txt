@@ -3,3 +3,4 @@ Parts of the project:
   2) Complex number arithmetic
   3) Notation tools
   4) Geometry tools
+  5) Additional operations
