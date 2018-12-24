@@ -1,5 +1,7 @@
 #pragma once
 #include <cmath>
+using namespace std;
+using namespace MathAn;
 
 namespace MathAn {
   class Operations {
