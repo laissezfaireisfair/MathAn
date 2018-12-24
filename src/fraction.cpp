@@ -8,9 +8,10 @@ void Fraction::reduce() const {
     return;
   numerator /= tgcd;
   denominator /= tgcd;
-  if (sign)
-  numerator *= (-1);
-  denominator *= (-1);
+  if (sign) {
+    numerator *= (-1);
+    denominator *= (-1);
+  }
 }
 
 Fraction::Fraction() {
