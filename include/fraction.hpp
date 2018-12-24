@@ -2,9 +2,9 @@
 #include <cmath>
 #include <string>
 using namespace std;
-using namespace MathAn;
 
 namespace MathAn {
+  using namespace MathAn;
   class Fraction {
   private:
     typedef int Num;
