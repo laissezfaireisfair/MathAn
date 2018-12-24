@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 using namespace std;
+using namespace MathAn;
 
 namespace MathAn {
   class Fraction {
