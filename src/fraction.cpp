@@ -1,12 +1,18 @@
 #include "./../include/fraction.hpp"
+#include <cmath>
+#include <string>
 using namespace MathAn;
 
 void Fraction::reduce() const {
-  Num gcd = Operations::gcd(numerator, denominator);
-  if (gcd <= 2)
+  bool sign = ((numerator < 0) && (denominator < 0));
+  Num tgcd = Operations::gcd(abs(numerator), abs(denominator));
+  if (tgcd <= 2)
     return;
-  numerator /= gcd;
-  denominator /= gcd;
+  numerator /= tgcd;
+  denominator /= tgcd;
+  if (sign)
+  numerator *= (-1);
+  denominator *= (-1);
 }
 
 Fraction::Fraction() {
@@ -20,7 +26,99 @@ Fraction::Fraction(const Num num, const Num den) {
   reduce();
 }
 
-Fraction(const Fraction other) {
+Fraction::Fraction(const Fraction other) {
   numerator = other.numerator;
   denominator = other.denominator;
+}
+
+Fraction Fraction::operator=(const Fraction other) {
+  numerator = other.numerator;
+  denominator = other.denominator;
+}
+
+Fraction operator+(const Fraction other) const {
+  Fraction answ;
+  Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
+  answ.denominator = denominator * other.denominator / tgcd;
+  answ.numerator = (numerator*other.denominator + other.numerator*denominator)/tgcd;
+  answ.reduce();
+  return answ;
+}
+Fraction operator-(const Fraction other) const {
+  Fraction answ;
+  Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
+  answ.denominator = denominator * other.denominator / tgcd;
+  answ.numerator = (numerator*other.denominator - other.numerator*denominator)/tgcd;
+  answ.reduce();
+  return answ;
+}
+Fraction operator*(const Fraction other) const {
+  Fraction answ;
+  answ.numerator = numerator * other.numerator;
+  answ.denominator = denominator * other.denominator;
+  answ.reduce();
+  return answ;
+}
+Fraction operator/(const Fraction other) const {
+  Fraction answ;
+  answ.numerator = numerator * other.denominator;
+  answ.denominator = denominator * other.numerator;
+  answ.reduce();
+  return answ;
+}
+Fraction operator+=(const Fraction other) {
+  Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
+  denominator = denominator * other.denominator / tgcd;
+  numerator = (numerator*other.denominator + other.numerator*denominator)/tgcd;
+  reduce();
+  return *this;
+}
+Fraction operator-=(const Fraction other) {
+  Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
+  denominator = denominator * other.denominator / tgcd;
+  numerator = (numerator*other.denominator - other.numerator*denominator)/tgcd;
+  reduce();
+  return *this;
+}
+Fraction operator*=(const Fraction other) {
+  denominator *= other.denominator;
+  numerator *= other.numerator;
+  reduce();
+  return *this;
+}
+Fraction operator/=(const Fraction other) {
+  denominator *= other.numerator;
+  numerator *= other.denominator;
+  reduce();
+  return *this;
+}
+bool operator==(const Fraction other) {
+  return (numerator==other.numerator) && (denominator==other.denominator);
+}
+bool operator!=(const Fraction other) {
+  return (numerator!=other.numerator) || (denominator!=other.denominator);
+}
+bool operator<(const Fraction other) {
+  return (numerator*other.denominator) > (other.numerator*denominator);
+}
+bool operator>(const Fraction other) {
+  return (numerator*other.denominator) < (other.numerator*denominator);
+}
+bool operator<=(const Fraction other) {
+  return (numerator*other.denominator) <= (other.numerator*denominator);
+}
+bool operator>=(const Fraction other) {
+  return (numerator*other.denominator) >= (other.numerator*denominator);
+}
+double count() const {
+  return double(numerator) / double(denominator);
+}
+string get_str() const {
+  string answ;
+  answ += to_string(numerator);
+  if (denominator != 1) {
+    answ += "/";
+    answ += to_string(denominator);
+  }
+  return answ;
 }
