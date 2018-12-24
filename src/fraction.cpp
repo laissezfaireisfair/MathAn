@@ -1,6 +1,4 @@
 #include "./../include/fraction.hpp"
-#include <cmath>
-#include <string>
 using namespace MathAn;
 
 void Fraction::reduce() const {
