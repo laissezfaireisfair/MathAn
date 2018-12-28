@@ -112,8 +112,8 @@ bool MathAn::Fraction::operator>=(const Fraction other) {
 double MathAn::Fraction::count() const {
   return double(numerator) / double(denominator);
 }
-string MathAn::Fraction::get_str() const {
-  string answ;
+std::string MathAn::Fraction::get_str() const {
+  std::string answ;
   answ += to_string(numerator);
   if (denominator != 1) {
     answ += "/";
