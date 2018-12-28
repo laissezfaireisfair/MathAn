@@ -3,7 +3,6 @@
 #include <string>
 
 namespace MathAn {
-  using namespace MathAn;
   class Fraction {
   private:
     typedef int Num;
