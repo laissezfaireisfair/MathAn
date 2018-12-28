@@ -3,7 +3,7 @@ using namespace MathAn;
 
 void MathAn::Fraction::reduce() {
   bool sign = ((numerator < 0) && (denominator < 0));
-  Num tgcd = Operations::gcd(abs(numerator), abs(denominator));
+  Num tgcd = Operations::gcd<Num>(abs(numerator), abs(denominator));
   if (tgcd <= 2)
     return;
   numerator /= tgcd;
