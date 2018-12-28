@@ -1,7 +1,6 @@
 #pragma once
 #include <cmath>
 #include <string>
-using namespace std;
 
 namespace MathAn {
   using namespace MathAn;
@@ -30,6 +29,6 @@ namespace MathAn {
     bool operator<=(const Fraction other);
     bool operator>=(const Fraction other);
     double count() const;
-    string get_str() const;
+    std::string get_str() const;
   };
 }

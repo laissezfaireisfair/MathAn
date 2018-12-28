@@ -1,6 +1,5 @@
 #pragma once
 #include <cmath>
-using namespace std;
 
 namespace MathAn {
   using namespace MathAn;
