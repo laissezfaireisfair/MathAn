@@ -11,7 +11,7 @@ namespace MathAn {
   public:
     Fraction();
     Fraction(const Num num, const Num den);
-    Fraction(const Fraction other);
+    Fraction(const Fraction & other);
     Fraction operator=(const Fraction other);
     Fraction operator+(const Fraction other) const;
     Fraction operator-(const Fraction other) const;

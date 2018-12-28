@@ -25,7 +25,7 @@ MathAn::Fraction::Fraction(const Num num, const Num den) {
   reduce();
 }
 
-MathAn::Fraction::Fraction(const Fraction other) {
+MathAn::Fraction::Fraction(const Fraction & other) {
   numerator = other.numerator;
   denominator = other.denominator;
 }
