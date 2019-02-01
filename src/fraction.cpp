@@ -98,16 +98,16 @@ bool MathAn::Fraction::operator!=(const Fraction other) {
   return (numerator!=other.numerator) || (denominator!=other.denominator);
 }
 bool MathAn::Fraction::operator<(const Fraction other) {
-  return (numerator*other.denominator) > (other.numerator*denominator);
+  return (other.numerator*denominator) < (numerator*other.denominator);
 }
 bool MathAn::Fraction::operator>(const Fraction other) {
-  return (numerator*other.denominator) < (other.numerator*denominator);
+  return (other.numerator*denominator) > (numerator*other.denominator);
 }
 bool MathAn::Fraction::operator<=(const Fraction other) {
-  return (numerator*other.denominator) <= (other.numerator*denominator);
+  return (other.numerator*denominator) <= (numerator*other.denominator);
 }
 bool MathAn::Fraction::operator>=(const Fraction other) {
-  return (numerator*other.denominator) >= (other.numerator*denominator);
+  return (other.numerator*denominator) >= (numerator*other.denominator);
 }
 double MathAn::Fraction::count() const {
   return double(numerator) / double(denominator);
