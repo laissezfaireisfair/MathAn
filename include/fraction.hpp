@@ -1,6 +1,8 @@
 #pragma once
 #include <cmath>
 #include <string>
+#include "operations.hpp"
+#include "./../src/operations.cpp"
 
 namespace MathAn {
   class Fraction {
