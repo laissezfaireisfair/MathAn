@@ -1,0 +1,6 @@
+Parts of the project:
+  1) Fraction arithmetic
+  2) Complex number arithmetic
+  3) Notation tools
+  4) Geometry tools
+  5) Additional operations
