@@ -114,10 +114,10 @@ double MathAn::Fraction::count() const {
 }
 std::string MathAn::Fraction::get_str() const {
   std::string answ;
-  answ += to_string(numerator);
+  answ += std::to_string(numerator);
   if (denominator != 1) {
     answ += "/";
-    answ += to_string(denominator);
+    answ += std::to_string(denominator);
   }
   return answ;
 }
