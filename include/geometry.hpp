@@ -10,6 +10,7 @@ namespace MathAn {
     Vector2(const Vector2 i);
     double get_length() const;
     Vector2 get_normalised() const;
+    Vector2 operator=(const Vector2 other) const;
     Vector2 operator+(const Vector2 other) const;
     Vector2 operator-(const Vector2 other) const;
     double operator*(const Vector2 other) const;
