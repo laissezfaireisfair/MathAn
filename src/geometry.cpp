@@ -1,6 +1,7 @@
 #pragma once
 #include "./../include/geometry.hpp"
 
+/// Vector2 functions:
 MathAn::Vector2::Vector2() {
   x = 1;
   y = 1;
@@ -42,4 +43,43 @@ double MathAn::Vector2::get_x() const {
 }
 double MathAn::Vector2::get_y() const {
   return y;
+}
+
+/// Point2 functions:
+MathAn::Point2::Point2() {
+  x = 0;
+  y = 0;
+}
+MathAn::Point2::Point2(double xi, double yi) {
+  x = xi;
+  y = yi;
+}
+MathAn::Point2::Point2(const MathAn::Point2 & other) {
+  x = other.x;
+  y = other.y;
+}
+double MathAn::Point2::get_x() const {
+  return x;
+}
+double MathAn::Point2::get_y() const {
+  return y;
+}
+double MathAn::Point2::get_dist(const MathAn::Point2 other) const {
+  return hypot(x, y);
+}
+MathAn::Vector2 MathAn::Point2::get_movement(const MathAn::Point2 target) const {
+  return Vector2(target.x - x, target.y - y);
+}
+MathAn::Point2 MathAn::Point2::operator=(const MathAn::Point2 other) const {
+  x = other.x;
+  y = other.y;
+  return other;
+}
+MathAn::Point2 MathAn::Point2::operator+(const MathAn::Vector2 movement) const {
+  return Point2(x + movement.x, y + movement.y);
+}
+MathAn::Point2 MathAn::Point2::operator+=(const MathAn::Vector2 movement) {
+  x += movement.x;
+  y += movement.y;
+  return *this;
 }
