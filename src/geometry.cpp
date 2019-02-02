@@ -76,10 +76,10 @@ MathAn::Point2 MathAn::Point2::operator=(const MathAn::Point2 other){
   return other;
 }
 MathAn::Point2 MathAn::Point2::operator+(const MathAn::Vector2 movement) const {
-  return Point2(x + movement.x, y + movement.y);
+  return Point2(x + movement.get_x(), y + movement.get_y());
 }
 MathAn::Point2 MathAn::Point2::operator+=(const MathAn::Vector2 movement) {
-  x += movement.x;
-  y += movement.y;
+  x += movement.get_x();
+  y += movement.get_y();
   return *this;
 }
