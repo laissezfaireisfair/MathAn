@@ -15,5 +15,10 @@ int main() {
   c = a - b;
   cout << "a = a - b;" << endl;
   cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
+  cout << "b.length = " << b.get_length() << ";" << endl;
+  c = b.get_normalised();
+  cout << "c = normalise(b);" << endl;
+  cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
+  cout << "angle(a, b) = " << a.get_angle(b) << ";" << endl;
   return 0;
 }
