@@ -9,7 +9,7 @@ MathAn::Vector2::Vector2(const double xi, const double yi) {
   x = xi;
   y = yi;
 }
-MathAn::Vector2::Vector2(const MathAn::Vector2 i) {
+MathAn::Vector2::Vector2(const MathAn::Vector2 & i) {
   x = i.x;
   y = i.y;
 }
