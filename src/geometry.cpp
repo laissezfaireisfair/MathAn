@@ -70,7 +70,7 @@ double MathAn::Point2::get_dist(const MathAn::Point2 other) const {
 MathAn::Vector2 MathAn::Point2::get_movement(const MathAn::Point2 target) const {
   return Vector2(target.x - x, target.y - y);
 }
-MathAn::Point2 MathAn::Point2::operator=(const MathAn::Point2 other) const {
+MathAn::Point2 MathAn::Point2::operator=(const MathAn::Point2 other){
   x = other.x;
   y = other.y;
   return other;

@@ -29,7 +29,7 @@ namespace MathAn {
     double get_y() const;
     double get_dist(const Point2 other) const;
     Vector2 get_movement(const Point2 target) const;
-    Point2 operator=(const Point2 other) const;
+    Point2 operator=(const Point2 other);
     Point2 operator+(const Vector2 movement) const;
     Point2 operator+=(const Vector2 movement);
   };
