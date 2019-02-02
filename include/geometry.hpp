@@ -1,6 +1,5 @@
 #pragma once
 #include <cmath>
-#include <string>
 
 namespace MathAn {
   class Vector2 {
@@ -17,6 +16,5 @@ namespace MathAn {
     double get_angle(const Vector2 other) const;
     double get_x() const;
     double get_y() const;
-    std::string get_str() const;
   };
 };

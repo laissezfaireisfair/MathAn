@@ -33,3 +33,9 @@ double operator*(const MathAn::Vector2 other) const {
 double get_angle(const MathAn::Vector2 other) const {
   return (*this) * other / get_length();
 }
+double get_x() const {
+  return x;
+}
+double get_y() const {
+  return y;
+}
