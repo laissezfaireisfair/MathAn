@@ -32,6 +32,7 @@ MathAn::Fraction::Fraction(const Fraction & other) {
 MathAn::Fraction MathAn::Fraction::operator=(const Fraction other) {
   numerator = other.numerator;
   denominator = other.denominator;
+  return other; 
 }
 
 MathAn::Fraction MathAn::Fraction::operator+(const Fraction other) const {
