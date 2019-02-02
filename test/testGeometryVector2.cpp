@@ -9,5 +9,11 @@ int main() {
   cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << endl;
   cout << "b.x = " << b.get_x() << "; b.y = " << b.get_y() << endl;
   cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
+  c = a + b;
+  cout << "a = a + b;" << endl;
+  cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
+  c = a - b;
+  cout << "a = a - b;" << endl;
+  cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
   return 0;
 }
