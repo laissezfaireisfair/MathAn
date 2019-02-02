@@ -20,7 +20,7 @@ MathAn::Vector2 MathAn::Vector2::get_normalised() const {
   double len = get_length();
   return Vector2(x/len, y/len);
 }
-MathAn::Vector2 MathAn::Vector2::operator=(const MathAn::Vector2 other) const {
+MathAn::Vector2 MathAn::Vector2::operator=(const MathAn::Vector2 other){
   x = other.x;
   y = other.y;
   return other;
