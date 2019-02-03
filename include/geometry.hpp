@@ -14,6 +14,8 @@ namespace MathAn {
     Vector2 operator+(const Vector2 other) const;
     Vector2 operator-(const Vector2 other) const;
     double operator*(const Vector2 other) const;
+    Vector2 operator+=(const Vector2 other);
+    Vector2 operator-=(const Vector2 other);
     bool operator==(const Vector2 other) const;
     bool operator!=(const Vector2 other) const;
     double get_angle(const Vector2 other) const;
