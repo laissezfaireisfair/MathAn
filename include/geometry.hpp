@@ -72,5 +72,5 @@ namespace MathAn {
     Line2 operator=(const Line2 other);
     bool operator==(const Line2 other) const;
     bool operator!=(const Line2 other) const;
-  }
+  };
 };
