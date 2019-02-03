@@ -20,5 +20,7 @@ int main() {
   cout << "c = normalise(b);" << endl;
   cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << endl;
   cout << "angle(a, b) = " << a.get_angle(b) << ";" << endl;
+  cout << "a == b = " << (a == b ? "true" : "false") << ";" << endl;
+  cout << "a != b = " << (a != b ? "true" : "false") << ";" << endl;
   return 0;
 }
