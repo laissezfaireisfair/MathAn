@@ -32,5 +32,7 @@ namespace MathAn {
     Point2 operator=(const Point2 other);
     Point2 operator+(const Vector2 movement) const;
     Point2 operator+=(const Vector2 movement);
+    bool operator==(const Point2 other) const;
+    bool operator!=(const Point2 other) const;
   };
 };

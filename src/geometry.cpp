@@ -83,3 +83,9 @@ MathAn::Point2 MathAn::Point2::operator+=(const MathAn::Vector2 movement) {
   y += movement.get_y();
   return *this;
 }
+bool MathAn::Point2::operator==(const Point2 other) const {
+  return (x == other.x) && (y == other.y);
+}
+bool MathAn::Point2::operator!=(const Point2 other) const {
+  return (x != other.x) || (y != other.y);
+}
