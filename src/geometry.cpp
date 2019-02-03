@@ -45,6 +45,16 @@ MathAn::Vector2 MathAn::Vector2::operator-=(const Vector2 other) {
   y -= other.y;
   return (*this);
 }
+MathAn::Vector2 MathAn::Vector2::operator*=(const double num) {
+  x *= num;
+  y *= num;
+  return (*this);
+}
+MathAn::Vector2 MathAn::Vector2::operator/=(const double num) {
+  x /= num;
+  y /= num;
+  return (*this);
+}
 double MathAn::Vector2::get_angle(const MathAn::Vector2 other) const {
   return acos((*this) * other / get_length() / other.get_length());
 }
