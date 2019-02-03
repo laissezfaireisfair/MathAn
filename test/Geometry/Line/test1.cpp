@@ -25,6 +25,24 @@ int main() {
   print_line(a, "A");
   print_line(b, "B");
   print_line(c, "C");
-  print_pnt(a.get_intersection(b), "(a and b intersection)");
+  Point2 pnt = a.get_intersection(b);
+  cout << "pnt = a and b intersection;" << endl;
+  print_pnt(pnt, "pnt");
+  Vector2 dir = b.get_single_direction_vector();
+  cout << "direction = b.get_single_direction_vector();" << endl;
+  print_vec(dir, "direction");
+  Vector2 nrml = b.get_single_normal_vector();
+  cout << "normal = b.get_single_normal_vector();" << endl;
+  print_vec(nrml, "normal");
+  cout << "Is pnt inside B-" << (b.is_point_inside(pnt) ? "Yes;" : "No;") << endl;
+  cout << "Is dir parall B-" << (b.is_vector_parallel(dir) ? "Yes;" : "No;") << endl;
+  cout << "Is a parall B-" << (b.is_line_parallel(a) ? "Yes;" : "No;") << endl;
+  cout << "Is nrml normal B-" << (b.is_vector_normal(nrml) ? "Yes;" : "No;") << endl;
+  cout << "Is a normal B-" << (b.is_line_normal(a) ? "Yes;" : "No;") << endl;
+  c = b;
+  cout << "c = b;" << endl;
+  print_line(c, "C");
+  cout << "A != B " << (a != b ? "Yes;" : "No;") << endl;
+  cout << "A == C " << (a == c ? "Yes;" : "No;") << endl;
   return 0;
 }
