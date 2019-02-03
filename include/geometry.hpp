@@ -63,6 +63,7 @@ namespace MathAn {
     double get_c() const;
     Point2 get_intersection(const Line2 other) const;
     Vector2 get_single_direction_vector() const;
+    Vector2 get_single_normal_vector() const;
     bool is_point_inside(const Point2 pnt) const;
     bool is_vector_parallel(const Vector2 vec) const;
     bool is_line_parallel(const Line2 ln) const;
