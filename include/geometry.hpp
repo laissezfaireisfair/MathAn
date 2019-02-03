@@ -25,9 +25,13 @@ namespace MathAn {
     double get_y() const;
     friend Vector2 operator*(const Vector2 vec, const double num);
     friend Vector2 operator*(const double num, const Vector2 vec);
+    friend Vector2 operator/(const Vector2 vec, const double num);
+    friend Vector2 operator/(const double num, const Vector2 vec);
   };
   Vector2 operator*(const Vector2 vec, const double num);
   Vector2 operator*(const double num, const Vector2 vec);
+  Vector2 operator/(const Vector2 vec, const double num);
+  Vector2 operator/(const double num, const Vector2 vec);
 
   class Point2 {
     double x, y;
