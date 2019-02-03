@@ -10,5 +10,17 @@ int main() {
   cout << "b.x = " << b.get_x() << "; b.y = " << b.get_y() << ";" << endl;
   cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << ";" << endl;
   cout << "dist(a, b) = " << a.get_dist(b) << ";" << endl;
+  c = a;
+  cout << "c = a;" << endl;
+  cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << ";" << endl;
+  Vector2 movAB = a.get_movement(b);
+  cout << "movement(a, b).x = " << movAB.get_x();
+  cout << "; movement(a, b).y = " << movAB.get_y() << ";" << endl;
+  c += movAB;
+  cout << "c += movAB;" << endl;
+  cout << "c.x = " << c.get_x() << "; c.y = " << c.get_y() << ";" << endl;
+  a = a + movAB;
+  cout << "a = a + movAB;" << endl;
+  cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << ";" << endl;
   return 0;
 }
