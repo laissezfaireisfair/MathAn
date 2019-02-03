@@ -44,6 +44,12 @@ double MathAn::Vector2::get_x() const {
 double MathAn::Vector2::get_y() const {
   return y;
 }
+bool MathAn::Vector2::operator==(const Vector2 other) const {
+  return (x == other.x) && (y == other.y);
+}
+bool MathAn::Vector2::operator!=(const Vector2 other) const {
+  return (x != other.x) || (y != other.y);
+}
 
 /// Point2 functions:
 MathAn::Point2::Point2() {
