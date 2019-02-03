@@ -65,7 +65,7 @@ double MathAn::Point2::get_y() const {
   return y;
 }
 double MathAn::Point2::get_dist(const MathAn::Point2 other) const {
-  return hypot(x, y);
+  return hypot(other.x - x, other.y - y);
 }
 MathAn::Vector2 MathAn::Point2::get_movement(const MathAn::Point2 target) const {
   return Vector2(target.x - x, target.y - y);
