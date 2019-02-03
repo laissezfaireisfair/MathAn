@@ -23,7 +23,11 @@ namespace MathAn {
     double get_angle(const Vector2 other) const;
     double get_x() const;
     double get_y() const;
+    friend Vector2 operator*(const Vector2 vec, const double num);
+    friend Vector2 operator*(const double num, const Vector2 vec);
   };
+  Vector2 operator*(const Vector2 vec, const double num);
+  Vector2 operator*(const double num, const Vector2 vec);
 
   class Point2 {
     double x, y;

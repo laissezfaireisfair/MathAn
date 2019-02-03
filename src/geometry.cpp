@@ -70,6 +70,12 @@ bool MathAn::Vector2::operator==(const Vector2 other) const {
 bool MathAn::Vector2::operator!=(const Vector2 other) const {
   return (x != other.x) || (y != other.y);
 }
+MathAn::Vector2 MathAn::operator*(const Vector2 vec, const double num){
+  return Vector2(vec.x * num, vec.y * num);
+}
+MathAn::Vector2 MathAn::operator*(const double num, const Vector2 vec){
+  return Vector2(vec.x * num, vec.y * num);
+}
 
 /// Point2 functions:
 MathAn::Point2::Point2() {
