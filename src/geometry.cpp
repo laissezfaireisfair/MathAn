@@ -83,6 +83,7 @@ MathAn::Vector2 MathAn::operator/(const double num, const Vector2 vec) {
   return Vector2(vec.x / num, vec.y / num);
 }
 
+
 /// Point2 functions:
 MathAn::Point2::Point2() {
   x = 0;
@@ -127,3 +128,45 @@ bool MathAn::Point2::operator==(const Point2 other) const {
 bool MathAn::Point2::operator!=(const Point2 other) const {
   return (x != other.x) || (y != other.y);
 }
+
+
+/// Line2 functions:
+MathAn::Line2::Line2() {
+  a = 1;
+  b = 1;
+  c = 0;
+}
+MathAn::Line2::Line2(const double ai, const double bi, const double ci) {
+  a = ai;
+  b = bi;
+  c = ci;
+}
+MathAn::Line2::Line2(const Line2 & other) {
+  a = other.a;
+  b = other.b;
+  c = other.c;
+}
+MathAn::Line2::Line2(const Point2 pnt, const Vector2 vec) {
+  a = vec.get_y() * (-1.0);
+  b = vec.get_x();
+  c = vec.get_y() * pnt.get_x() - vec.get_x() * pnt.get_y();
+}
+MathAn::Line2::Line2(const Point2 pnt, const Line2 prlll) {
+  a = prlll.a;
+  b = prlll.b;
+  c = (-1.0) * prlll.a * pnt.get_x() - prlll.b * pnt.get_y();
+}
+double MathAn::Line2::get_a() const;
+double MathAn::Line2::get_b() const;
+double MathAn::Line2::get_c() const;
+MathAn::Point2 MathAn::Line2::get_intersection(const Line2 other) const;
+MathAn::Vector2 MathAn::Line2::get_single_direction_vector() const;
+MathAn::Vector2 MathAn::Line2::get_single_normal_vector() const;
+bool MathAn::Line2::is_point_inside(const Point2 pnt) const;
+bool MathAn::Line2::is_vector_parallel(const Vector2 vec) const;
+bool MathAn::Line2::is_line_parallel(const Line2 ln) const;
+bool MathAn::Line2::is_vector_normal(const Vector2 vec) const;
+bool MathAn::Line2::is_line_normal(const Line2 ln) const;
+MathAn::Line2 MathAn::Line2::operator=(const Line2 other);
+bool MathAn::Line2::operator==(const Line2 other) const;
+bool MathAn::Line2::operator!=(const Line2 other) const;
