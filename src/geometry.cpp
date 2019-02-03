@@ -180,10 +180,10 @@ bool MathAn::Line2::is_point_inside(const Point2 pnt) const {
   return (a * pnt.get_x() + b * pnt.get_y() + c == 0);
 }
 bool MathAn::Line2::is_vector_parallel(const Vector2 vec) const {
-  return (vec * get_single_normal_vector == 0);
+  return (vec * get_single_normal_vector() == 0);
 }
 bool MathAn::Line2::is_vector_normal(const Vector2 vec) const {
-  return (vec * get_single_direction_vector == 0);
+  return (vec * get_single_direction_vector() == 0);
 }
 bool MathAn::Line2::is_line_parallel(const Line2 ln) const {
   return (get_single_normal_vector() * ln.get_single_direction_vector() == 0);
