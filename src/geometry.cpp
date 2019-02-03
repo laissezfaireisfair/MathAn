@@ -166,8 +166,8 @@ double MathAn::Line2::get_c() const {
   return c;
 }
 MathAn::Point2 MathAn::Line2::get_intersection(const Line2 other) const {
-  double y = (a * other.c + other.a * c) / (a * other.b - other.a * b);
-  double x = ((-1.0) * b - c) / a;
+  double y = (a * other.c - other.a * c) / (other.a * b - a * other.b);
+  double x = (-other.b * y - other.c) / other.a;
   return Point2(x, y);
 }
 MathAn::Vector2 MathAn::Line2::get_single_direction_vector() const {
