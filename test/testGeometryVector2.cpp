@@ -22,5 +22,11 @@ int main() {
   cout << "angle(a, b) = " << a.get_angle(b) << ";" << endl;
   cout << "a == b = " << (a == b ? "true" : "false") << ";" << endl;
   cout << "a != b = " << (a != b ? "true" : "false") << ";" << endl;
+  a *= 3.0;
+  cout << "a *= 3;" << endl;
+  cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << endl;
+  a /= 3.0;
+  cout << "a /= 3;" << endl;
+  cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << endl;
   return 0;
 }
