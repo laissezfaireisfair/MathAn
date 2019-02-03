@@ -22,5 +22,9 @@ int main() {
   a = a + movAB;
   cout << "a = a + movAB;" << endl;
   cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << ";" << endl;
+  b = Point2(0, 0);
+  cout << "b = (0;0);" << endl;
+  cout << "A == B = " << (a == b ? "true" : "false") << ";" << endl;
+  cout << "A != B = " << (a != b ? "true" : "false") << ";" << endl;
   return 0;
 }
