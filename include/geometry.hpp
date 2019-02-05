@@ -59,6 +59,7 @@ namespace MathAn {
     Line2(const double ai, const double bi, const double ci);
     Line2(const Line2 & other);
     Line2(const Point2 pnt, const Vector2 vec);
+    Line2(const Point2 p1, const Point2 p2);
     Line2(const Point2 pnt, const Line2 prlll);
     double get_a() const;
     double get_b() const;
