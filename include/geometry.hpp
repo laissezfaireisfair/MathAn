@@ -113,10 +113,10 @@ namespace MathAn {
     Point2 get_b() const;
     Point2 get_c() const;
     Triangle2 operator=(const Triangle2 other);
-    bool operator==(const Triangle2 other);
-    bool operator!=(const Triangle2 other);
-    bool is_inside(const Point2 pnt);
-    bool is_on_the_border(const Point2 pnt);
-    Triangle2 get_moved(const Vector2 movement);
+    bool operator==(const Triangle2 other) const;
+    bool operator!=(const Triangle2 other) const;
+    bool is_inside(const Point2 pnt) const;
+    bool is_on_the_border(const Point2 pnt) const;
+    Triangle2 get_moved(const Vector2 movement) const;
   }
 };
