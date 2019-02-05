@@ -100,4 +100,22 @@ namespace MathAn {
     bool is_touch(const Circle2 other) const;
     Circle2 get_moved(const Vector2 movement) const;
   };
+
+  class Triangle2 {
+    Point2 a, b, c;
+  public:
+    Triangle2();
+    Triangle2(const Point2 ai, const Point2 bi, const Point2 ci);
+    Triangle2(const Line2 ln1, const Line2 ln2, const Line2 ln3);
+    Triangle2(const Triangle2 & other);
+    Point2 get_a() const;
+    Point2 get_b() const;
+    Point2 get_c() const;
+    Triangle2 operator=(const Triangle2 other);
+    bool operator==(const Triangle2 other);
+    bool operator!=(const Triangle2 other);
+    bool is_inside(const Point2 pnt);
+    bool is_on_the_border(const Point2 pnt);
+    Triangle2 get_moved(const Vector2 movement);
+  }
 };
