@@ -339,6 +339,8 @@ double MathAn::Triangle2::count_square() const {
   return sqrt(p*(p-t1)*(p-t2)*(p-t3));
 }
 bool MathAn::Triangle2::is_inside(const Point2 pnt) const {
+  if (is_on_the_border(pnt))
+    return false;
   Triangle2 t1(a, b, pnt), t2(a, c, pnt), t3(b, c, pnt);
   double s = t1.count_square() + t2.count_square() + t3.count_square();
   return count_square() == s;
