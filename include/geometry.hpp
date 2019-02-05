@@ -8,6 +8,7 @@ namespace MathAn {
     Vector2();
     Vector2(const double xi, const double yi);
     Vector2(const Vector2 & i);
+    Vector2(const Point2 begin, const Point2 end);
     double get_length() const;
     Vector2 get_normalised() const;
     Vector2 operator=(const Vector2 other);
