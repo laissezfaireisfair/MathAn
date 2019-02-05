@@ -82,6 +82,12 @@ MathAn::Vector2 MathAn::operator/(const Vector2 vec, const double num) {
 MathAn::Vector2 MathAn::operator/(const double num, const Vector2 vec) {
   return Vector2(vec.x / num, vec.y / num);
 }
+bool MathAn::Vector2::is_vector_collinear(const Vector2 other) const {
+  return ((*this) * Vector2((-other.y), other.x) == 0);
+}
+bool MathAn::Vector2::is_vector_normal(const Vector2 other) const {
+  return ((*this) * other == 0);
+}
 
 
 /// Point2 functions:

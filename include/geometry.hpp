@@ -27,6 +27,8 @@ namespace MathAn {
     friend Vector2 operator*(const double num, const Vector2 vec);
     friend Vector2 operator/(const Vector2 vec, const double num);
     friend Vector2 operator/(const double num, const Vector2 vec);
+    bool is_vector_normal(const Vector2 other) const;
+    bool is_vector_collinear(const Vector2 other) const;
   };
   Vector2 operator*(const Vector2 vec, const double num);
   Vector2 operator*(const double num, const Vector2 vec);
