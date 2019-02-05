@@ -118,5 +118,5 @@ namespace MathAn {
     bool is_on_the_border(const Point2 pnt) const;
     Triangle2 get_moved(const Vector2 movement) const;
     double count_square() const;
-  }
+  };
 };
