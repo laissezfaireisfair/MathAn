@@ -43,5 +43,8 @@ int main() {
   cout << "a /= b;" << endl;
   a /= b;
   print_cmplx(a, "a");
+  cout << endl;
+  cout << "a == b: " << (a == b ? "true;" : "false;") << endl;
+  cout << "a != b: " << (a != b ? "true;" : "false;") << endl;
   return 0;
 }

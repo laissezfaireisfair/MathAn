@@ -23,5 +23,7 @@ namespace MathAn {
     double get_b() const;
     double get_arg() const;
     Complex get_conjugate() const;
+    bool operator==(const Complex other) const;
+    bool operator!=(const Complex other) const;
   };
 }

@@ -72,3 +72,9 @@ double MathAn::Complex::get_arg() const {
 MathAn::Complex MathAn::Complex::get_conjugate() const {
   return Complex(a, -b);
 }
+bool MathAn::Complex::operator==(const Complex other) const {
+  return (a == other.a) && (b == other.b);
+}
+bool MathAn::Complex::operator!=(const Complex other) const {
+  return !(*this == other);
+}
