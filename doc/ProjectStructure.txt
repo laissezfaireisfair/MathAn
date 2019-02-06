@@ -2,3 +2,4 @@ MathAn:
 	include: *.hpp, *.h
 	src: *.cpp
 	doc: for documentation
+	test: for tests

@@ -205,6 +205,7 @@ MathAn::Line2 MathAn::Line2::operator=(const Line2 other) {
   a = other.a;
   b = other.b;
   c = other.c;
+  return other;
 }
 bool MathAn::Line2::operator==(const Line2 other) const {
   return ((a / other.a == b / other.b) && (b / other.b == c / other.c));
@@ -235,6 +236,7 @@ double MathAn::Circle2::get_radius() const {
 MathAn::Circle2 MathAn::Circle2::operator=(const Circle2 other) {
   centre = other.centre;
   radius = other.radius;
+  return other;
 }
 bool MathAn::Circle2::operator==(const Circle2 other) const {
   return radius == other.radius;
@@ -310,6 +312,7 @@ MathAn::Triangle2 MathAn::Triangle2::operator=(const Triangle2 other) {
   a = other.a;
   b = other.b;
   c = other.c;
+  return other;
 }
 bool MathAn::Triangle2::operator==(const Triangle2 other) const{
   if (a.get_movement(b) != other.a.get_movement(other.b))
