@@ -22,6 +22,6 @@ namespace MathAn {
     double get_a() const;
     double get_b() const;
     double get_arg() const;
-    double get_conjugate() const;
+    Complex get_conjugate() const;
   };
 }
