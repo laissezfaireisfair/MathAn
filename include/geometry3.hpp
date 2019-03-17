@@ -34,7 +34,7 @@ Vector3 operator*(const Vector3 vec, const double num);
 Vector3 operator*(const double num, const Vector3 vec);
 Vector3 operator/(const Vector3 vec, const double num);
 Vector3 operator/(const double num, const Vector3 vec);
-};
+
 
 class Point3 {
   double x, y, z;
@@ -52,4 +52,5 @@ public:
   Point3 operator+=(const Vector3 movement);
   bool operator==(const Point3 other) const;
   bool operator!=(const Point3 other) const;
+};
 };
