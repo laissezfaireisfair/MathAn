@@ -5,9 +5,9 @@
 #include "./../src/operations.cpp"
 
 namespace MathAn {
+  template <class Num>
   class Fraction {
   private:
-    typedef int Num;
     Num numerator, denominator;
     void reduce();
   public:

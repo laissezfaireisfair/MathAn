@@ -1,6 +1,7 @@
 #include "./../include/fraction.hpp"
 
-void MathAn::Fraction::reduce() {
+template <class Num>
+void MathAn::Fraction<Num>::reduce() {
   bool sign = ((numerator < 0) && (denominator < 0));
   Num tgcd = Operations::gcd<Num>(abs(numerator), abs(denominator));
   if (tgcd < 2)
@@ -13,29 +14,34 @@ void MathAn::Fraction::reduce() {
   }
 }
 
-MathAn::Fraction::Fraction() {
+template <class Num>
+MathAn::Fraction<Num>::Fraction() {
   numerator = 1;
   denominator = 1;
 }
 
-MathAn::Fraction::Fraction(const Num num, const Num den) {
+template <class Num>
+MathAn::Fraction<Num>::Fraction(const Num num, const Num den) {
   numerator = num;
   denominator = den;
   reduce();
 }
 
-MathAn::Fraction::Fraction(const Fraction & other) {
+template <class Num>
+MathAn::Fraction<Num>::Fraction(const Fraction<Num> & other) {
   numerator = other.numerator;
   denominator = other.denominator;
 }
 
-MathAn::Fraction MathAn::Fraction::operator=(const Fraction other) {
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator=(const Fraction<Num> other) {
   numerator = other.numerator;
   denominator = other.denominator;
-  return other; 
+  return other;
 }
 
-MathAn::Fraction MathAn::Fraction::operator+(const Fraction other) const {
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator+(const Fraction<Num> other) const {
   Fraction answ;
   Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
   answ.denominator = denominator * other.denominator / tgcd;
@@ -43,7 +49,9 @@ MathAn::Fraction MathAn::Fraction::operator+(const Fraction other) const {
   answ.reduce();
   return answ;
 }
-MathAn::Fraction MathAn::Fraction::operator-(const Fraction other) const {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator-(const Fraction<Num> other) const {
   Fraction answ;
   Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
   answ.denominator = denominator * other.denominator / tgcd;
@@ -51,68 +59,96 @@ MathAn::Fraction MathAn::Fraction::operator-(const Fraction other) const {
   answ.reduce();
   return answ;
 }
-MathAn::Fraction MathAn::Fraction::operator*(const Fraction other) const {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator*(const Fraction<Num> other) const {
   Fraction answ;
   answ.numerator = numerator * other.numerator;
   answ.denominator = denominator * other.denominator;
   answ.reduce();
   return answ;
 }
-MathAn::Fraction MathAn::Fraction::operator/(const Fraction other) const {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator/(const Fraction<Num> other) const {
   Fraction answ;
   answ.numerator = numerator * other.denominator;
   answ.denominator = denominator * other.numerator;
   answ.reduce();
   return answ;
 }
-MathAn::Fraction MathAn::Fraction::operator+=(const Fraction other) {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator+=(const Fraction<Num> other) {
   Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
   denominator = denominator * other.denominator / tgcd;
   numerator = (numerator*other.denominator + other.numerator*denominator)/tgcd;
   reduce();
   return *this;
 }
-MathAn::Fraction MathAn::Fraction::operator-=(const Fraction other) {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator-=(const Fraction<Num> other) {
   Num tgcd = Operations::gcd(abs(denominator), abs(other.denominator));
   denominator = denominator * other.denominator / tgcd;
   numerator = (numerator*other.denominator - other.numerator*denominator)/tgcd;
   reduce();
   return *this;
 }
-MathAn::Fraction MathAn::Fraction::operator*=(const Fraction other) {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator*=(const Fraction<Num> other) {
   denominator *= other.denominator;
   numerator *= other.numerator;
   reduce();
   return *this;
 }
-MathAn::Fraction MathAn::Fraction::operator/=(const Fraction other) {
+
+template <class Num>
+MathAn::Fraction<Num> MathAn::Fraction<Num>::operator/=(const Fraction<Num> other) {
   denominator *= other.numerator;
   numerator *= other.denominator;
   reduce();
   return *this;
 }
-bool MathAn::Fraction::operator==(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator==(const Fraction<Num> other) {
   return (numerator==other.numerator) && (denominator==other.denominator);
 }
-bool MathAn::Fraction::operator!=(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator!=(const Fraction<Num> other) {
   return (numerator!=other.numerator) || (denominator!=other.denominator);
 }
-bool MathAn::Fraction::operator<(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator<(const Fraction<Num> other) {
   return (other.numerator*denominator) < (numerator*other.denominator);
 }
-bool MathAn::Fraction::operator>(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator>(const Fraction<Num> other) {
   return (other.numerator*denominator) > (numerator*other.denominator);
 }
-bool MathAn::Fraction::operator<=(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator<=(const Fraction<Num> other) {
   return (other.numerator*denominator) <= (numerator*other.denominator);
 }
-bool MathAn::Fraction::operator>=(const Fraction other) {
+
+template <class Num>
+bool MathAn::Fraction<Num>::operator>=(const Fraction<Num> other) {
   return (other.numerator*denominator) >= (numerator*other.denominator);
 }
-double MathAn::Fraction::count() const {
+
+template <class Num>
+double MathAn::Fraction<Num>::count() const {
   return double(numerator) / double(denominator);
 }
-std::string MathAn::Fraction::get_str() const {
+
+template <class Num>
+std::string MathAn::Fraction<Num>::get_str() const {
   std::string answ;
   answ += std::to_string(numerator);
   if (denominator != 1) {
