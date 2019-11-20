@@ -4,3 +4,4 @@ Parts of the project:
   3) Notation tools (operations.hpp, operations.cpp)
   4) Geometry tools (geometry.hpp, geometry.cpp)
   5) Geometry3 tools (geometry3.hpp, geometry3.cpp)
+  6) Long arithmetic tools (longArithmetic.hpp, longArithmetic.cpp)
