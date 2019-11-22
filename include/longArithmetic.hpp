@@ -20,6 +20,7 @@ namespace MathAn {
         unsigned int const notation = 10) const;
     LongNum get_abs() const;
     LongNum get_negative() const;
+    LongNum get_pow(unsigned int const exponent) const;
     LongNum operator+(LongNum const other) const;
     LongNum operator-(LongNum const other) const;
     LongNum operator*(LongNum const other) const;
