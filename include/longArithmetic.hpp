@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <stdexcept>
+#include <cmath>
 
 namespace MathAn {
   class LongNum {
