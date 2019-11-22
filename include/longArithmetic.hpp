@@ -11,13 +11,11 @@ namespace MathAn {
     LongNum();
     LongNum(LongNum const & other);
     LongNum(int const num);
-    int get_int(unsigned int const notation = 10) const;
-    std::string get_string(unsigned int const notation = 10) const;
+    int get_int() const;
+    std::string get_string() const;
     short get_sign() const;
-    unsigned int get_int_digit(unsigned int const numDigit,\
-        unsigned int const notation = 10) const;
-    std::string get_string_digit(unsigned int const numDigit,\
-        unsigned int const notation = 10) const;
+    unsigned int get_int_digit(unsigned int const numDigit) const;
+    std::string get_string_digit(unsigned int const numDigit) const;
     LongNum get_abs() const;
     LongNum get_negative() const;
     LongNum get_pow(unsigned int const exponent) const;
