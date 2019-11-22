@@ -5,7 +5,7 @@
 
 namespace MathAn {
   class LongNum {
-    vector<bool> body;
+    std::vector<bool> body;
     short sign;
   public:
     LongNum();
@@ -29,6 +29,8 @@ namespace MathAn {
     LongNum operator-=(LongNum const other);
     LongNum operator*=(LongNum const other);
     LongNum operator/=(LongNum const other);
+    LongNum operator++();
+    LongNum operator--();
     bool operator==(LongNum const other) const;
     bool operator!=(LongNum const other) const;
     bool operator>(LongNum const other) const;
