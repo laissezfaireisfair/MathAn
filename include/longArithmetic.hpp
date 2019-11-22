@@ -11,7 +11,6 @@ namespace MathAn {
     LongNum();
     LongNum(LongNum const & other);
     LongNum(int const num);
-    LongNum(std::string const strNum);
     int get_int(unsigned int const notation = 10) const;
     std::string get_string(unsigned int const notation = 10) const;
     short get_sign() const;
