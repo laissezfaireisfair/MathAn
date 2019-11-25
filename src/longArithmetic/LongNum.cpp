@@ -9,8 +9,8 @@ MathAn::LongNum::LongNum(LongNum const & other) {
   sign = other.sign;
   body = other.body;
 }
-MathAn::LongNum::LongNum(int const num) { //TODO: string initialisalion based on
-  if (num == 0) {                         //      short 10->2 notation algorithm
+MathAn::LongNum::LongNum(int const num) {
+  if (num == 0) {
     sign = 0;
     body.push_back(0);
     return;
@@ -40,7 +40,6 @@ short MathAn::LongNum::get_sign() const {
   return sign;
 }
 unsigned int MathAn::LongNum::get_int_digit(unsigned int const numDigit) const;
-std::string MathAn::LongNum::get_string_digit(unsigned int const numDigit) const;
 MathAn::LongNum::LongNum MathAn::LongNum::get_pow(unsigned int const exponent) const {
   LongNum answ = LongNum(1);
   for (unsigned int i = 0; i < exponent; ++i)
