@@ -1,4 +1,10 @@
+#include "./../../../include/geometry2/Vector2.hpp"
+#include "./../../../include/geometry2/Point2.hpp"
+#include "./../../../include/geometry2/Line2.hpp"
 #include "./../../../include/geometry2/Triangle2.hpp"
+#include "./../../../src/geometry2/Vector2.cpp"
+#include "./../../../src/geometry2/Point2.cpp"
+#include "./../../../src/geometry2/Line2.cpp"
 #include "./../../../src/geometry2/Triangle2.cpp"
 #include <iostream>
 using namespace std;

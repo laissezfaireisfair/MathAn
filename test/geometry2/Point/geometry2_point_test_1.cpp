@@ -1,5 +1,7 @@
-#include "./../../../include/geometry.hpp"
-#include "./../../../src/geometry.cpp"
+#include "./../../../include/geometry2/Vector2.hpp"
+#include "./../../../include/geometry2/Point2.hpp"
+#include "./../../../src/geometry2/Vector2.cpp"
+#include "./../../../src/geometry2/Point2.cpp"
 #include <iostream>
 using namespace std;
 using namespace MathAn;

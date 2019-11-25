@@ -1,4 +1,8 @@
+#include "./../../../include/geometry2/Vector2.hpp"
+#include "./../../../include/geometry2/Point2.hpp"
 #include "./../../../include/geometry2/Line2.hpp"
+#include "./../../../src/geometry2/Vector2.cpp"
+#include "./../../../src/geometry2/Point2.cpp"
 #include "./../../../src/geometry2/Line2.cpp"
 #include <iostream>
 #include <cstring>
