@@ -16,7 +16,6 @@ namespace MathAn {
     std::string get_string() const;
     short get_sign() const;
     unsigned int get_int_digit(unsigned int const numDigit) const;
-    std::string get_string_digit(unsigned int const numDigit) const;
     LongNum get_abs() const;
     LongNum get_negative() const;
     LongNum get_pow(unsigned int const exponent) const;
