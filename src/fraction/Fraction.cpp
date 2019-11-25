@@ -1,6 +1,6 @@
-#include "./../../include/fraction.hpp"
+#include "./../../include/fraction/Fraction.hpp"
 
-unsigned int gcd(unsigned int const a, unsigned int const b) const {
+unsigned int MathAn::Fraction::gcd(unsigned int const a, unsigned int const b) const {
   if (b == 0)
 		return a;
 	return gcd(b, a % b);
@@ -8,7 +8,7 @@ unsigned int gcd(unsigned int const a, unsigned int const b) const {
 
 void MathAn::Fraction::reduce() {
   bool sign = ((numerator < 0) && (denominator < 0));
-  Num tgcd = gcd(abs(numerator), abs(denominator));
+  unsigned int const tgcd = gcd(abs(numerator), abs(denominator));
   if (tgcd < 2)
     return;
   numerator /= tgcd;
@@ -26,7 +26,7 @@ MathAn::Fraction::Fraction() {
 }
 
 
-MathAn::Fraction::Fraction(const Num num, const Num den) {
+MathAn::Fraction::Fraction(const int num, const int den) {
   numerator = num;
   denominator = den;
   reduce();
@@ -48,7 +48,7 @@ MathAn::Fraction MathAn::Fraction::operator=(const Fraction other) {
 
 MathAn::Fraction MathAn::Fraction::operator+(const Fraction other) const {
   Fraction answ;
-  Num tgcd = gcd(abs(denominator), abs(other.denominator));
+  int tgcd = gcd(abs(denominator), abs(other.denominator));
   answ.denominator = denominator * other.denominator / tgcd;
   answ.numerator = (numerator*other.denominator + other.numerator*denominator)/tgcd;
   answ.reduce();
@@ -58,7 +58,7 @@ MathAn::Fraction MathAn::Fraction::operator+(const Fraction other) const {
 
 MathAn::Fraction MathAn::Fraction::operator-(const Fraction other) const {
   Fraction answ;
-  Num tgcd = gcd(abs(denominator), abs(other.denominator));
+  int tgcd = gcd(abs(denominator), abs(other.denominator));
   answ.denominator = denominator * other.denominator / tgcd;
   answ.numerator = (numerator*other.denominator - other.numerator*denominator)/tgcd;
   answ.reduce();
@@ -85,7 +85,7 @@ MathAn::Fraction MathAn::Fraction::operator/(const Fraction other) const {
 
 
 MathAn::Fraction MathAn::Fraction::operator+=(const Fraction other) {
-  Num tgcd = gcd(abs(denominator), abs(other.denominator));
+  int tgcd = gcd(abs(denominator), abs(other.denominator));
   denominator = denominator * other.denominator / tgcd;
   numerator = (numerator*other.denominator + other.numerator*denominator)/tgcd;
   reduce();
@@ -94,7 +94,7 @@ MathAn::Fraction MathAn::Fraction::operator+=(const Fraction other) {
 
 
 MathAn::Fraction MathAn::Fraction::operator-=(const Fraction other) {
-  Num tgcd = gcd(abs(denominator), abs(other.denominator));
+  int tgcd = gcd(abs(denominator), abs(other.denominator));
   denominator = denominator * other.denominator / tgcd;
   numerator = (numerator*other.denominator - other.numerator*denominator)/tgcd;
   reduce();

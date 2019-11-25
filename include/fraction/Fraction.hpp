@@ -6,7 +6,7 @@ namespace MathAn {
   class Fraction {
   private:
     int numerator, denominator;
-    static unsigned int gcd(unsigned int const a, unsigned int const b) const;
+    unsigned int gcd(unsigned int const a, unsigned int const b) const;
     void reduce();
   public:
     Fraction();
