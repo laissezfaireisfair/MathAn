@@ -26,5 +26,7 @@ int main() {
   cout << "b = (0;0);" << endl;
   cout << "A == B = " << (a == b ? "true" : "false") << ";" << endl;
   cout << "A != B = " << (a != b ? "true" : "false") << ";" << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

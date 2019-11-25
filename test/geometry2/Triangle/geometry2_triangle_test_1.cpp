@@ -41,5 +41,7 @@ int main() {
   print_truth(a.is_on_the_border(pnt), "pnt is on the border First");
   print_trngl(a.get_moved(Vector2(1, 1)), "First moved + (1,1)");
   cout << "First square = " << a.count_square() << ";" << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

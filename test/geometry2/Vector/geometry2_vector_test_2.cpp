@@ -11,5 +11,7 @@ int main() {
   cout << "a*3 = (" << (a*3).get_x() << "; " << (a*3).get_y() << ");" << endl;
   cout << "3/a = (" << (3/a).get_x() << "; " << (3/a).get_y() << ");" << endl;
   cout << "a/3 = (" << (a/3).get_x() << "; " << (a/3).get_y() << ");" << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

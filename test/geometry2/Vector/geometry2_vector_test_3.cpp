@@ -23,5 +23,7 @@ int main() {
   print_truth(a.is_vector_normal(ca), "a is normal to ca");
   print_truth(a.is_vector_collinear(na), "a is collinear to na");
   print_truth(a.is_vector_collinear(ca), "a is collinear to ca");
+  int trash;
+  cin >> trash;
   return 0;
 }
