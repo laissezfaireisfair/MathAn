@@ -44,5 +44,7 @@ int main() {
   print_truth(a.is_touch(b), "a is touch b");
   cout << endl << "move a + Vector(1, 2)" << endl;
   print_crcl(a.get_moved(Vector2(1, 2)), "Moved a");
+  int trash;
+  cin >> trash;
   return 0;
 }

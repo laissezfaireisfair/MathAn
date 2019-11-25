@@ -44,5 +44,7 @@ int main() {
   print_line(c, "C");
   cout << "A != B " << (a != b ? "Yes;" : "No;") << endl;
   cout << "A == C " << (a == c ? "Yes;" : "No;") << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

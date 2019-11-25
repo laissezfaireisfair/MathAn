@@ -46,5 +46,7 @@ int main() {
   cout << endl;
   cout << "a == b: " << (a == b ? "true;" : "false;") << endl;
   cout << "a != b: " << (a != b ? "true;" : "false;") << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

@@ -27,5 +27,7 @@ int main() {
   else
     cout << "n" << endl;
   cout << "a.get_angle(b) = " << a.get_angle(b) << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

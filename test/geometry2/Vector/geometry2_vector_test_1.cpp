@@ -28,5 +28,7 @@ int main() {
   a /= 3.0;
   cout << "a /= 3;" << endl;
   cout << "a.x = " << a.get_x() << "; a.y = " << a.get_y() << endl;
+  int trash;
+  cin >> trash;
   return 0;
 }

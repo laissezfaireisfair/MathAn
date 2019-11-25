@@ -32,5 +32,7 @@ int main() {
   b = 3 * c;
   cout << "b";
   print_vector(b);
+  int trash;
+  cin >> trash;
   return 0;
 }
