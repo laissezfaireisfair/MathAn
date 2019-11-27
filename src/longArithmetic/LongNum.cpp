@@ -66,13 +66,29 @@ MathAn::LongNum::LongNum MathAn::LongNum::get_negative() const {
   return answ;
 }
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator+(LongNum const other) const;
+MathAn::LongNum::LongNum MathAn::LongNum::operator+(LongNum const other) const {
+  LongNum a(*this);
+  a += other;
+  return a;
+}
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator-(LongNum const other) const;
+MathAn::LongNum::LongNum MathAn::LongNum::operator-(LongNum const other) const {
+  LongNum a(*this);
+  a -= other;
+  return a;
+}
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator*(LongNum const other) const;
+MathAn::LongNum::LongNum MathAn::LongNum::operator*(LongNum const other) const {
+  LongNum a(*this);
+  a *= other;
+  return a;
+}
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator/(LongNum const other) const;
+MathAn::LongNum::LongNum MathAn::LongNum::operator/(LongNum const other) const {
+  LongNum a(*this);
+  a /= other;
+  return a;
+}
 
 MathAn::LongNum::LongNum MathAn::LongNum::operator+=(LongNum const other);
 
