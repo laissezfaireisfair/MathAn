@@ -98,9 +98,27 @@ MathAn::LongNum::LongNum MathAn::LongNum::operator*=(LongNum const other);
 
 MathAn::LongNum::LongNum MathAn::LongNum::operator/=(LongNum const other);
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator++();
+MathAn::LongNum::LongNum MathAn::LongNum::operator++() {
+  (*this) += 1;
+  return *this;
+}
 
-MathAn::LongNum::LongNum MathAn::LongNum::operator--();
+MathAn::LongNum::LongNum MathAn::LongNum::operator--() {
+  (*this) -= 1;
+  return *this;
+}
+
+MathAn::LongNum::LongNum MathAn::LongNum::operator++(int) {
+  LongNum copy(*this);
+  ++(*this);
+  return copy;
+}
+
+MathAn::LongNum::LongNum MathAn::LongNum::operator--(int) {
+  LongNum copy(*this);
+  --(*this);
+  return copy;
+}
 
 bool MathAn::LongNum::operator==(LongNum const other) const;
 
