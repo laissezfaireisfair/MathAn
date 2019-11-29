@@ -45,8 +45,6 @@ short MathAn::LongNum::get_sign() const {
   return sign;
 }
 
-unsigned int MathAn::LongNum::get_int_digit(unsigned int const numDigit) const;
-
 MathAn::LongNum::LongNum MathAn::LongNum::get_pow(unsigned int const exponent) const {
   LongNum answ = LongNum(1);
   for (unsigned int i = 0; i < exponent; ++i)
