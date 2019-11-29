@@ -29,6 +29,8 @@ namespace MathAn {
     LongNum operator/=(LongNum const other);
     LongNum operator++();
     LongNum operator--();
+    LongNum operator++(int);
+    LongNum operator--(int);
     bool operator==(LongNum const other) const;
     bool operator!=(LongNum const other) const;
     bool operator>(LongNum const other) const;
