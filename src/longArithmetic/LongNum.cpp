@@ -46,20 +46,20 @@ short MathAn::LongNum::get_sign() const {
 }
 
 MathAn::LongNum::LongNum MathAn::LongNum::get_pow(unsigned int const exponent) const {
-  LongNum answ = LongNum(1);
+  LongNum answ(1);
   for (unsigned int i = 0; i < exponent; ++i)
     answ *= *this;
 }
 
 MathAn::LongNum::LongNum MathAn::LongNum::get_abs() const {
-  LongNum answ = *this;
+  LongNum answ(*this);
   if (answ.sign == -1)
     answ.sign = 1;
   return answ;
 }
 
 MathAn::LongNum::LongNum MathAn::LongNum::get_negative() const {
-  LongNum answ = *this;
+  LongNum answ(*this);
   answ.sign *= -1;
   return answ;
 }
