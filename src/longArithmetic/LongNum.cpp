@@ -120,14 +120,26 @@ MathAn::LongNum::LongNum MathAn::LongNum::operator--(int) {
   return copy;
 }
 
-bool MathAn::LongNum::operator==(LongNum const other) const;
+bool MathAn::LongNum::operator==(LongNum const other) const {
+  return ((*this - other).sign() == 0);
+}
 
-bool MathAn::LongNum::operator!=(LongNum const other) const;
+bool MathAn::LongNum::operator!=(LongNum const other) const {
+  return !(*this == other);
+}
 
-bool MathAn::LongNum::operator>(LongNum const other) const;
+bool MathAn::LongNum::operator>(LongNum const other) const {
+  return ((*this - other).sign() > 0);
+}
 
-bool MathAn::LongNum::operator<(LongNum const other) const;
+bool MathAn::LongNum::operator<(LongNum const other) const {
+  return ((*this - other).sign() < 0);
+}
 
-bool MathAn::LongNum::operator>=(LongNum const other) const;
+bool MathAn::LongNum::operator>=(LongNum const other) const {
+  return (*this > other || *this == other);
+}
 
-bool MathAn::LongNum::operator<=(LongNum const other) const;
+bool MathAn::LongNum::operator<=(LongNum const other) const {
+  return (*this < other || *this == other);
+}
