@@ -37,4 +37,14 @@ namespace MathAn {
     bool operator>=(LongNum const other) const;
     bool operator<=(LongNum const other) const;
   };
+
+  class _LongNumConverter {
+    unsigned int const base = 1000000000;
+    std::vector<unsigned int> body;
+    int sign;
+    void increment();
+  public:
+    _LongNumConverter(LongNum const & num);
+    std::string get_string() const;
+  };
 }
