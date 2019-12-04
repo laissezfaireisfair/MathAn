@@ -2,6 +2,9 @@
 #include "../../include/longArithmetic/LongNum.hpp"
 
 namespace MathAn {
+  void LongNum::negative() {
+    sign *= -1;
+  }
   LongNum::LongNum() {
     sign = 0;
     body.push_back(0);
@@ -93,9 +96,63 @@ namespace MathAn {
     return a;
   }
 
-  LongNum LongNum::operator+=(LongNum const other);
+  LongNum LongNum::operator+=(LongNum const other) {
+    if (other.sign == 0)
+      return *this;
+    if (sign == 0) {
+      *this = other;
+      return *this;
+    }
+    if (sign > 0 && other.sign < 0)
+      return *this -= other.get_negative();
+    if (sign < 0 && other.sign > 0) {
+      negative();
+      *this += other;
+      negative();
+      return *this;
+    }
+    if (sign < 0 && other.sign < 0) {
+      negative();
+      *this -= other;
+      negative();
+      return *this;
+    }
+    for (unsigned int i = 0, carry = 0; i < other.body.size() || carry; i++) {
+      unsigned int digSum = carry + int(body[i]) + int(other.body[i]);
+      body[i] = digSum % 2;
+      carry = digSum / 2;
+    }
+    return *this;
+  }
 
-  LongNum LongNum::operator-=(LongNum const other);
+  LongNum LongNum::operator-=(LongNum const other) {
+    if (other.sign == 0)
+      return *this;
+    if (sign == 0) {
+      *this = other;
+      return *this;
+    }
+    if (sign > 0 && other.sign < 0)
+      return *this += other.get_negative();
+    if (sign < 0 && other.sign > 0) {
+      negative();
+      *this -= other;
+      negative();
+      return *this;
+    }
+    if (sign < 0 && other.sign < 0) {
+      negative();
+      *this += other;
+      negative();
+      return *this;
+    }
+    for (unsigned int i = 0, carry = 0; i < other.body.size() || carry; i++) {
+      int digSum = int(body[i]) - int(other.body[i]) - carry;
+      body[i] = (digSum > 0 ? digSum : 0);
+      carry = (digSum < 0 ? 1 : 0);
+    }
+    return *this;
+  }
 
   LongNum LongNum::operator*=(LongNum const other);
 
