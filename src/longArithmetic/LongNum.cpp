@@ -149,6 +149,7 @@ namespace MathAn {
 
   void _LongNumConverter::increment() {
     unsigned int i = 0;
+    bool need_increase_digit;
     do {
       if (body[i] == base) {
         body[i] = 0;
@@ -163,7 +164,7 @@ namespace MathAn {
   }
 
   _LongNumConverter::_LongNumConverter(LongNum const & num) {
-    body(1, 0);
+    body = std::vector<unsigned int>(1, 0);
     sign = num.get_sign();
     for (LongNum i = num.get_abs(); i > 0; --i)
       increment();
