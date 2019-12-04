@@ -8,6 +8,7 @@ namespace MathAn {
   class LongNum {
     std::vector<bool> body;
     short sign;
+    void negative();
   public:
     LongNum();
     LongNum(LongNum const & other);
