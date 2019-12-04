@@ -41,7 +41,10 @@ namespace MathAn {
     return counter * sign;
   }
 
-  std::string LongNum::get_string() const;
+  std::string LongNum::get_string() const {
+    _LongNumConverter converter(*this);
+    return converter.get_string();
+  }
 
   short LongNum::get_sign() const {
     return sign;
@@ -142,5 +145,34 @@ namespace MathAn {
 
   bool LongNum::operator<=(LongNum const other) const {
     return (*this < other || *this == other);
+  }
+
+  void _LongNumConverter::increment() {
+    unsigned int i = 0;
+    do {
+      if (body[i] == base) {
+        body[i] = 0;
+        ++i;
+        need_increase_digit = true;
+      }
+      else {
+        body[i] += 1;
+        need_increase_digit = false;
+      }
+    } while(need_increase_digit);
+  }
+
+  _LongNumConverter::_LongNumConverter(LongNum const & num) {
+    body(1, 0);
+    sign = num.get_sign();
+    for (LongNum i = num.get_abs(); i > 0; --i)
+      increment();
+  }
+
+  std::string _LongNumConverter::get_string() const {
+    std::string str = (sign > 0) ? "" : "-";
+    for (unsigned int i = body.size() - 1; i >= 0; --i)
+      str.push_back('0' + body[i]);
+    return str;
   }
 }
