@@ -57,6 +57,7 @@ namespace MathAn {
     LongNum answ(1);
     for (unsigned int i = 0; i < exponent; ++i)
       answ *= *this;
+    return answ;
   }
 
   LongNum LongNum::get_abs() const {
@@ -96,7 +97,7 @@ namespace MathAn {
     return a;
   }
 
-  LongNum operator%(LongNum const other) const {
+  LongNum LongNum::operator%(LongNum const other) const {
     LongNum a(*this);
     a /= other;
     return a;
@@ -192,11 +193,12 @@ namespace MathAn {
     return *this;
   }
 
-  LongNum operator%=(LongNum const other) {
+  LongNum LongNum::operator%=(LongNum const other) {
     LongNum const otherAbs = other.get_abs();
     if (sign < 0)
       negative();
-    for (LongNum accum = 0; accum <= otherAbs; accum += *this) {
+    LongNum accum = 0;
+    for (; accum <= otherAbs; accum += *this) {
       if (accum == otherAbs) {
         *this = 0;
         return *this;
@@ -229,7 +231,7 @@ namespace MathAn {
   }
 
   bool LongNum::operator==(LongNum const other) const {
-    return ((*this - other).sign() == 0);
+    return ((*this - other).sign == 0);
   }
 
   bool LongNum::operator!=(LongNum const other) const {
@@ -237,11 +239,11 @@ namespace MathAn {
   }
 
   bool LongNum::operator>(LongNum const other) const {
-    return ((*this - other).sign() > 0);
+    return ((*this - other).sign > 0);
   }
 
   bool LongNum::operator<(LongNum const other) const {
-    return ((*this - other).sign() < 0);
+    return ((*this - other).sign < 0);
   }
 
   bool LongNum::operator>=(LongNum const other) const {
