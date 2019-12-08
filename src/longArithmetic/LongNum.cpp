@@ -161,22 +161,48 @@ namespace MathAn {
   }
 
   LongNum LongNum::operator*=(LongNum const other) {
+    short const multSign = sign * other.sign;
+    LongNum const otherAbs = other.get_abs();
+    if (sign < 0)
+      negative();
     LongNum copy(*this);
-    for (LongNum i(0); i < other; i++)
-    *this += copy;
+    for (LongNum i(0); i < otherAbs; i++)
+      *this += copy;
+    if (multSign < 0)
+      negative();
     return *this;
   }
 
   LongNum LongNum::operator/=(LongNum const other) {
+    short const divSign = sign * other.sign;
+    LongNum const otherAbs = other.get_abs();
+    if (sign < 0)
+      negative();
     LongNum i = 0;
-    for (LongNum accum = 0; accum <= other; ++i, accum += *this) {}
+    bool isDividable = false;
+    for (LongNum accum = 0; accum <= otherAbs; ++i, accum += *this)
+      if (accum == otherAbs)
+        isDividable = true;
     *this = i - 1;
+    if (divSign < 0) {
+      negative();
+      if (!isDividable)
+        --(*this);
+    }
     return *this;
   }
 
   LongNum operator%=(LongNum const other) {
-    for (LongNum accum = 0; accum <= other; accum += *this) {}
-    *this = accum -= other;
+    LongNum const otherAbs = other.get_abs();
+    if (sign < 0)
+      negative();
+    for (LongNum accum = 0; accum <= otherAbs; accum += *this) {
+      if (accum == otherAbs) {
+        *this = 0;
+        return *this;
+      }
+    }
+    *this = (accum -= other);
     return *this;
   }
 
