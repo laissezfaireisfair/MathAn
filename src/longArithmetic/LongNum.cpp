@@ -96,6 +96,12 @@ namespace MathAn {
     return a;
   }
 
+  LongNum operator%(LongNum const other) const {
+    LongNum a(*this);
+    a /= other;
+    return a;
+  }
+
   LongNum LongNum::operator+=(LongNum const other) {
     if (other.sign == 0)
       return *this;
@@ -165,6 +171,12 @@ namespace MathAn {
     LongNum i = 0;
     for (LongNum accum = 0; accum <= other; ++i, accum += *this) {}
     *this = i - 1;
+    return *this;
+  }
+
+  LongNum operator%=(LongNum const other) {
+    for (LongNum accum = 0; accum <= other; accum += *this) {}
+    *this = accum -= other;
     return *this;
   }
 
