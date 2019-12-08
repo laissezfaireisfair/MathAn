@@ -23,10 +23,12 @@ namespace MathAn {
     LongNum operator-(LongNum const other) const;
     LongNum operator*(LongNum const other) const;
     LongNum operator/(LongNum const other) const;
+    LongNum operator%(LongNum const other) const;
     LongNum operator+=(LongNum const other);
     LongNum operator-=(LongNum const other);
     LongNum operator*=(LongNum const other);
     LongNum operator/=(LongNum const other);
+    LongNum operator%=(LongNum const other);
     LongNum operator++();
     LongNum operator--();
     LongNum operator++(int);
