@@ -161,7 +161,12 @@ namespace MathAn {
     return *this;
   }
 
-  LongNum LongNum::operator/=(LongNum const other);
+  LongNum LongNum::operator/=(LongNum const other) {
+    LongNum i = 0;
+    for (LongNum accum = 0; accum <= other; ++i, accum += *this) {}
+    *this = i - 1;
+    return *this;
+  }
 
   LongNum LongNum::operator++() {
     (*this) += 1;
