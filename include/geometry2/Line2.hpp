@@ -1,9 +1,10 @@
 #pragma once
-#include <cmath>
-#include "Vector2.hpp"
-#include "Point2.hpp"
 
 namespace MathAn {
+  class Vector2;
+
+  class Point2;
+
   class Line2 {
     double a, b, c;
   public:

@@ -1,5 +1,4 @@
 #pragma once
-#include <cmath>
 
 namespace MathAn {
   class Vector3 {

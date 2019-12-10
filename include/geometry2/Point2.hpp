@@ -1,8 +1,8 @@
 #pragma once
-#include <cmath>
-#include "Vector2.hpp"
 
 namespace MathAn {
+  class Vector2;
+
   class Point2 {
     double x, y;
   public:

@@ -1,5 +1,7 @@
 #pragma once
 #include "../../include/longArithmetic/LongNum.hpp"
+#include <stdexcept>
+#include <cmath>
 
 namespace MathAn {
   void LongNum::negative() {

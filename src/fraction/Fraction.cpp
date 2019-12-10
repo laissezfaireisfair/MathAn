@@ -1,4 +1,5 @@
 #include "./../../include/fraction/Fraction.hpp"
+#include <cmath>
 
 namespace MathAn {
   unsigned int Fraction::gcd(unsigned int const a, unsigned int const b) const {

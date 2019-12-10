@@ -1,9 +1,8 @@
 #pragma once
-#include <cmath>
-#include "Vector2.hpp"
-#include "Point2.hpp"
 
 namespace MathAn {
+  class Point2;
+
   class Circle2 {
     Point2 centre;
     double radius;
