@@ -1,5 +1,6 @@
 #pragma once
 #include "./../../include/geometry3/Vector3.hpp"
+#include <cmath>
 
 namespace MathAn {
   Vector3::Vector3() {

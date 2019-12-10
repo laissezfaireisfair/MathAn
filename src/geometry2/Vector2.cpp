@@ -1,5 +1,6 @@
 #pragma once
 #include "./../../include/geometry2/Vector2.hpp"
+#include <cmath>
 
 namespace MathAn {
   Vector2::Vector2() {

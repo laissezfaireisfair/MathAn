@@ -1,5 +1,8 @@
 #pragma once
 #include "./../../include/geometry2/Line2.hpp"
+#include "./../../include/geometry2/Vector2.hpp"
+#include "./../../include/geometry2/Point2.hpp"
+#include <cmath>
 
 namespace MathAn {
   Line2::Line2() {

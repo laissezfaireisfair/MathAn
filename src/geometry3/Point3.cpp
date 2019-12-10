@@ -1,5 +1,7 @@
 #pragComplexma once
 #include "./../../include/geometry3/Point3.hpp"
+#include "./../../include/geometry3/Vector3.hpp"
+#include <cmath>
 
 namespace MathAn {
   Point3::Point3() {

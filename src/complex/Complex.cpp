@@ -1,4 +1,5 @@
 #include "./../../include/complex/Complex.hpp"
+#include <cmath>
 
 namespace MathAn {
   Complex::Complex() {
