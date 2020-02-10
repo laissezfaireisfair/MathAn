@@ -4,12 +4,15 @@
 #include <cmath>
 
 namespace MathAn {
+  const uint64_t LongNum::base = 10000000000000000;
+
   void LongNum::negative() {
     sign *= -1;
   }
+
   LongNum::LongNum() {
     sign = 0;
-    body.push_back(0);
+    body = std::vector<uint64_t>(1, 0);
   }
 
   LongNum::LongNum(LongNum const & other) {
@@ -17,13 +20,14 @@ namespace MathAn {
     body = other.body;
   }
 
-  LongNum::LongNum(int const num) {
+  LongNum::LongNum(int64_t const num) {
+    body = std::vector<uint64_t>();
     if (num == 0) {
       sign = 0;
       body.push_back(0);
       return;
     }
-    int positivedNumRest;
+    uint64_t positivedNumRest;
     if (num > 0) {
       sign = 1;
       positivedNumRest = num;
@@ -32,23 +36,22 @@ namespace MathAn {
       sign = -1;
       positivedNumRest = (-1) * num;
     }
-    for (;positivedNumRest > 0; positivedNumRest /= 2)
-      body.push_back(positivedNumRest % 2);
+    for (;positivedNumRest > 0; positivedNumRest /= base)
+      body.push_back(positivedNumRest % base);
   }
 
-  int LongNum::get_int() const {
-    if (body.size() > 32)
-      throw std::range_error("Too large for int");
-    int counter = 0;
-    unsigned int const bodySize = body.size();
-    for (unsigned int i = 0; i < bodySize; ++i)
-      counter += body[i] * std::pow(2, i);
-    return counter * sign;
+  int64_t LongNum::get_integer() const {
+    if (body.size() > 1 || body[0] > INT64_MAX)
+      throw std::range_error("Too large for int64_t");
+    return body[0] * sign;
   }
 
   std::string LongNum::get_string() const {
-    _LongNumConverter converter(*this);
-    return converter.get_string();
+    std::string str;
+    for (uint64_t i = 0; i < body.size(); ++i)
+      for (uint64_t digit = body[i]; digit > 0; digit /= 10)
+        str.insert(0, std::to_string(digit % 10));
+    return str;
   }
 
   short LongNum::get_sign() const {
@@ -126,10 +129,16 @@ namespace MathAn {
       negative();
       return *this;
     }
-    for (unsigned int i = 0, carry = 0; i < other.body.size() || carry; i++) {
-      unsigned int digSum = carry + int(body[i]) + int(other.body[i]);
-      body[i] = digSum % 2;
-      carry = digSum / 2;
+    for (uint64_t i = 0, carry = 0; i < other.body.size() || carry; ++i) {
+      if (i == body.size())
+        body.push_back(0);
+      uint64_t digSum;
+      if (i < other.body.size())
+        digSum = carry + body[i] + other.body[i];
+      else
+        digSum = carry + body[i];
+      body[i] = digSum % base;
+      carry = digSum / base;
     }
     return *this;
   }
@@ -155,10 +164,20 @@ namespace MathAn {
       negative();
       return *this;
     }
-    for (unsigned int i = 0, carry = 0; i < other.body.size() || carry; i++) {
-      int digSum = int(body[i]) - int(other.body[i]) - carry;
-      body[i] = (digSum > 0 ? digSum : 0);
-      carry = (digSum < 0 ? 1 : 0);
+    for (uint64_t i = 0, carry = 0; i < other.body.size() || carry; i++) {
+      if (i == body.size())
+        body.push_back(0);
+      int64_t digDiff;
+      if (i < other.body.size())
+        digDiff = body[i] - (carry + other.body[i]);
+      else
+        digDiff = body[i] - carry;
+      if (digDiff >= 0)
+        body[i] = digDiff;
+      else {
+        body[i] = 0;
+        carry = abs(digDiff);
+      }
     }
     return *this;
   }
@@ -254,35 +273,5 @@ namespace MathAn {
 
   bool LongNum::operator<=(LongNum const other) const {
     return (*this < other || *this == other);
-  }
-
-  void _LongNumConverter::increment() {
-    unsigned int i = 0;
-    bool need_increase_digit;
-    do {
-      if (body[i] == base) {
-        body[i] = 0;
-        ++i;
-        need_increase_digit = true;
-      }
-      else {
-        body[i] += 1;
-        need_increase_digit = false;
-      }
-    } while(need_increase_digit);
-  }
-
-  _LongNumConverter::_LongNumConverter(LongNum const & num) {
-    body = std::vector<unsigned int>(1, 0);
-    sign = num.get_sign();
-    for (LongNum i = num.get_abs(); i > 0; --i)
-      increment();
-  }
-
-  std::string _LongNumConverter::get_string() const {
-    std::string str = (sign > 0) ? "" : "-";
-    for (unsigned int i = body.size() - 1; i >= 0; --i)
-      str.push_back('0' + body[i]);
-    return str;
   }
 }
