@@ -1,17 +1,19 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <cstdint>
 
 namespace MathAn {
   class LongNum {
-    std::vector<bool> body;
+    std::vector<uint64_t> body;
+    static uint64_t const base;
     short sign;
     void negative();
   public:
     LongNum();
     LongNum(LongNum const & other);
-    LongNum(int const num);
-    int get_int() const;
+    LongNum(int64_t const num);
+    int64_t get_integer() const;
     std::string get_string() const;
     short get_sign() const;
     LongNum get_abs() const;
@@ -37,15 +39,5 @@ namespace MathAn {
     bool operator<(LongNum const other) const;
     bool operator>=(LongNum const other) const;
     bool operator<=(LongNum const other) const;
-  };
-
-  class _LongNumConverter {
-    unsigned int const base = 1000000000;
-    std::vector<unsigned int> body;
-    int sign;
-    void increment();
-  public:
-    _LongNumConverter(LongNum const & num);
-    std::string get_string() const;
   };
 }
