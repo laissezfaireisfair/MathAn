@@ -51,6 +51,8 @@ namespace MathAn {
     for (uint64_t i = 0; i < body.size(); ++i)
       for (uint64_t digit = body[i]; digit > 0; digit /= 10)
         str.insert(0, std::to_string(digit % 10));
+    if (sign < 0)
+      str = "-" + str;
     return str;
   }
 
