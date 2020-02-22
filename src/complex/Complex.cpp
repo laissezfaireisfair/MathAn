@@ -33,8 +33,13 @@ namespace MathAn {
     return Complex(a * other.a - b * other.b, a * other.b + b * other.a);
   }
   Complex Complex::operator/(const Complex other) const {
-    double at = (a*other.a + b*other.b)/(other.a*other.a + other.b*other.b);
-    double bt = (b*other.a - a*other.b)/(other.a*other.a + other.b*other.b);
+    double const aNumerator = a*other.a + b*other.b;
+    double const bNumerator = b*other.a - a*other.b;
+    double const denominator = other.a*other.a + other.b*other.b;
+    if (denominator == 0)
+      throw std::domain_error("Division by zero");
+    double const at = aNumerator / denominator;
+    double const bt = bNumerator / denominator;
     return Complex(at, bt);
   }
   Complex Complex::operator+=(const Complex other) {
@@ -54,9 +59,13 @@ namespace MathAn {
     return (*this);
   }
   Complex Complex::operator/=(const Complex other) {
-    double at = (a*other.a + b*other.b)/(other.a*other.a + other.b*other.b);
-    b = (b*other.a - a*other.b)/(other.a*other.a + other.b*other.b);
-    a = at;
+    double const aNumerator = a*other.a + b*other.b;
+    double const bNumerator = b*other.a - a*other.b;
+    double const denominator = other.a*other.a + other.b*other.b;
+    if (denominator == 0)
+      throw std::domain_error("Division by zero");
+    a = aNumerator / denominator;
+    b = bNumerator / denominator;
     return (*this);
   }
   double Complex::get_abs() const {
